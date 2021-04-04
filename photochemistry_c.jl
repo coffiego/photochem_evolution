@@ -3,34 +3,6 @@
 # atmosphere prepared by Mike Chaffin, originally for the 8th
 # International Conference on Mars, held at CalTech in July 2014.
 
-
-########koyama comment############################################################
-#This file is modified by koyama to investigate the regulation of water escape from Martian atmosphere
-#When I increase a parameter of CO2 or temperature, this code got an error of lingularexeption(0) where
-#taking an inverse of Jacobian. Some O species density around altitude of 60km goes to zero and the error occurs.
-#It was caused by the mistake in photolysis part that T-dependent photodissociation coefficient of CO2
-#goes to minus. I fixed this one.
-#And I modified some of the code solving differential equation(taking the inverse of Jacobian) to avoid an error.
-#I followed the way of (Catling, 2017).
-#5/1(Reiwa)
-#I removed CO2 lower boundary by ignoring the production of CO2 from the reaction of CO2+ + H2 -> CO2 + H + H.
-#It is physically reasonable because manually added CO2+ originates from neutral CO2 in the atmosphere.
-
-#I deleted HOCO by changing HOCO-involved reactions' coefficient to zero to run model in a condition of more CO2 and H2O like >~1bar
-#Photochemistry_auto.jl
-#To statically investigate regulation timescale for different conditions.
-#2019/6/8
-
-#~2020/3/31
-#Purpose: to investigate self-regualtion timescale of an atmosphere of early Mars
-#Koyama et la., 2020
-#I modified following points below
-#Temperature pforile
-#H2O profile
-#diffusion coefficient -> change homopause
-#determinining position of CO2+ by pressure(initially altitude)
-#deposition flux
-
 #2020/6/6 Koyama
 #Investigate the effect of C escape on CO2 main atmospheres
 #Assuming boundary conditions of Tian+2009 from 4.1 Ga
